@@ -1,0 +1,21 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5"
+  },
+
+  "dependencies": {
+    "@types/angular": "1.5.16",
+    "@types/jquery": "^2.0.32",
+      "@types/moment": "2.13.0"
+      
+  },
+
+  "exclude": [
+    "node_modules"
+  ]
+}
