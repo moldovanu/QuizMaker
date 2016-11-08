@@ -12,8 +12,6 @@
     <title>Navbar Template for Bootstrap</title>
     <!-- Bootstrap core CSS -->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./Navbar Template for Bootstrap_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="lib/bootstrap/dist/css/navbar.css" rel="stylesheet" />
     <script src="lib/app.js"></script>
@@ -58,7 +56,7 @@
             <br />
 
 
-            <form method="post">
+            <form onsubmit="createQuestion()">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Quiz Question</label>
                     <input type="text" class="form-control" id="questionDescr" placeholder="Type your question here">
@@ -117,7 +115,7 @@
                     <br />
                     <p>
                         <!--<a class="btn btn-lg btn-primary" href="" role="button" onclick="addAnswer('additionalAnswer');">Add Another Answer</a>-->
-                        <button type="submit" class="btn btn-lg btn-primary" onclick="createQuestion()" id="submit">Submit Question</button>
+                        <button type="submit" class="btn btn-lg btn-primary" id="submit">Submit Question</button>
                     </p>
                 </div>
 
@@ -134,12 +132,8 @@
     </div> <!-- /container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./Navbar Template for Bootstrap_files/jquery.min.js.download"></script>
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./Navbar Template for Bootstrap_files/ie10-viewport-bug-workaround.js.download"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

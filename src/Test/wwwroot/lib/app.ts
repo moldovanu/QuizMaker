@@ -33,21 +33,30 @@ class Answer {
     }
 }
 
-
 let allQuestions = [];
-let answers = [];
+console.log("created allQuestions array: " + allQuestions);
 
-//function createQuestion() {
+let answers = [];
+let questionDescription = "";
+let answerOption = "";
+let answerIsTrue = false;
+
+function createQuestion() {
 
     console.log("Inside createQuestion");
-    console.log((<HTMLInputElement>document.getElementById("questionDescr")).value);
 
-    let description = (<HTMLInputElement>document.getElementById("questionDescr")).value;
+     questionDescription = (<HTMLInputElement>document.getElementById("questionDescr")).value;
+     console.log("Question description, grabbed from form: " + questionDescription);
 
-let question = new Question(description);
+
+     let question = new Question(questionDescription);
+
+    console.log("created a new Question object w/h the description above: ", question);
+
 
     allQuestions.push(question);
-//}
+    console.log("updated allQuestions array: " + allQuestions);
+}
 
 
 

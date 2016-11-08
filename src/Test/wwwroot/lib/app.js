@@ -22,14 +22,20 @@ var Answer = (function () {
     return Answer;
 }());
 var allQuestions = [];
+console.log("created allQuestions array: " + allQuestions);
 var answers = [];
-//function createQuestion() {
-console.log("Inside createQuestion");
-console.log(document.getElementById("questionDescr").value);
-var description = document.getElementById("questionDescr").value;
-var question = new Question(description);
-allQuestions.push(question);
-//}
+var questionDescription = "";
+var answerOption = "";
+var answerIsTrue = false;
+function createQuestion() {
+    console.log("Inside createQuestion");
+    questionDescription = document.getElementById("questionDescr").value;
+    console.log("Question description, grabbed from form: " + questionDescription);
+    var question = new Question(questionDescription);
+    console.log("created a new Question object w/h the description above: ", question);
+    allQuestions.push(question);
+    console.log("updated allQuestions array: " + allQuestions);
+}
 //let answer = new Answer("option 1", true);
 //answers.push(answer);
 //question.arrayOfAnswers = answers;
