@@ -36,19 +36,18 @@ class Answer {
 let allQuestions = [];
 console.log("created allQuestions array: " + allQuestions);
 
-let answers = [];
-let questionDescription = "";
+//let answers = [];
+//let questionDescription = "";
 let answerDescription = "";
 let checkBox = false;
 
 
 
-
+//grabbing data from the quiz form
 function createQuestion() {
-    
-    let question = new Question(questionDescription);
 
-    questionDescription = (<HTMLInputElement>document.getElementById("questionDescr")).value;
+    let questionDescription = (<HTMLInputElement>document.getElementById("questionDescr")).value;
+    let question = new Question(questionDescription);
 
     for (let i = 1; i <= 4; i++) {
         let answer = new Answer('', false);
@@ -66,10 +65,31 @@ function createQuestion() {
     console.log("full object", question);
 
     console.log("pushing Question to local storage");
-    localStorage.setItem('question object', JSON.stringify(question));
+    localStorage.setItem('question'+ Date.now(), JSON.stringify(question));
+    
+    //pushing existing data from the localstorage into an array of question objects
 
-   // allQuestions.push(question);
-    //console.log("updated allQuestions array: " + allQuestions);
+
+    alert ("Question submited. Add another question or take the quiz.")
+        
+    console.log("Question objects extracted from LocalStorage: \n");
+    for (let entry of allQuestions) {
+        console.log(entry);
+    }
+}
+
+
+function populateQuiz() {
+
+//extracting data from localstorage
+    for (let i = 0; i < localStorage.length; i++) {
+        let question = localStorage.getItem(localStorage.key(i));
+        question = JSON.parse(question);
+        allQuestions.push(question);
+    }
+
+
+
 }
 
 

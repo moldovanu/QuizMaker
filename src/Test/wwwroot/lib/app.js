@@ -23,13 +23,14 @@ var Answer = (function () {
 }());
 var allQuestions = [];
 console.log("created allQuestions array: " + allQuestions);
-var answers = [];
-var questionDescription = "";
+//let answers = [];
+//let questionDescription = "";
 var answerDescription = "";
 var checkBox = false;
+//grabbing data from the quiz form
 function createQuestion() {
+    var questionDescription = document.getElementById("questionDescr").value;
     var question = new Question(questionDescription);
-    questionDescription = document.getElementById("questionDescr").value;
     for (var i = 1; i <= 4; i++) {
         var answer = new Answer('', false);
         answerDescription = document.getElementById("answer" + i).value;
@@ -44,9 +45,22 @@ function createQuestion() {
     }
     console.log("full object", question);
     console.log("pushing Question to local storage");
-    localStorage.setItem('question object', JSON.stringify(question));
-    // allQuestions.push(question);
-    //console.log("updated allQuestions array: " + allQuestions);
+    localStorage.setItem('question' + Date.now(), JSON.stringify(question));
+    //pushing existing data from the localstorage into an array of question objects
+    alert("Question submited. Add another question or take the quiz.");
+    console.log("Question objects extracted from LocalStorage: \n");
+    for (var _b = 0, allQuestions_1 = allQuestions; _b < allQuestions_1.length; _b++) {
+        var entry = allQuestions_1[_b];
+        console.log(entry);
+    }
+}
+function populateQuiz() {
+    //extracting data from localstorage
+    for (var i = 0; i < localStorage.length; i++) {
+        var question = localStorage.getItem(localStorage.key(i));
+        question = JSON.parse(question);
+        allQuestions.push(question);
+    }
 }
 //let answer = new Answer("option 1", true);
 //answers.push(answer);
