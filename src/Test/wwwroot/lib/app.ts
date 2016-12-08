@@ -38,26 +38,39 @@ console.log("created allQuestions array: " + allQuestions);
 
 let answers = [];
 let questionDescription = "";
-let answerOption = "";
-let answerIsTrue = false;
+let answerDescription = "";
+let checkBox = false;
+
+
+
 
 function createQuestion() {
+    
+    let question = new Question(questionDescription);
 
-    console.log("Inside createQuestion");
+    questionDescription = (<HTMLInputElement>document.getElementById("questionDescr")).value;
 
-     questionDescription = (<HTMLInputElement>document.getElementById("questionDescr")).value;
-     console.log("Question description, grabbed from form: " + questionDescription);
+    for (let i = 1; i <= 4; i++) {
+        let answer = new Answer('', false);
+        answerDescription = (<HTMLInputElement>document.getElementById("answer"+ i)).value;
+        checkBox = (<HTMLInputElement>document.getElementById("answerTrue"+i)).checked;
+        answer.isTrue = checkBox;
+        answer.option = answerDescription;
+        question.arrayOfAnswers.push(answer);
+    }
 
+    for (let entry of question.arrayOfAnswers) {
+        console.log(entry);
+    }
 
-     let question = new Question(questionDescription);
+    console.log("full object", question);
 
-    console.log("created a new Question object w/h the description above: ", question);
+    console.log("pushing Question to local storage");
+    localStorage.setItem('question object', JSON.stringify(question));
 
-
-    allQuestions.push(question);
-    console.log("updated allQuestions array: " + allQuestions);
+   // allQuestions.push(question);
+    //console.log("updated allQuestions array: " + allQuestions);
 }
-
 
 
 
