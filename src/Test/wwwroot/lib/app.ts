@@ -87,16 +87,20 @@ function populateQuiz() {
     for (let i = 0; i < localStorage.length; i++) {
         let question = localStorage.getItem(localStorage.key(i));
         question = JSON.parse(question);
+
+
         allQuestions.push(question);
-        console.log("List of questions 1: " + allQuestions[i].questionDescr);
-        console.log("List of answers 1: " + allQuestions[i].Answer[i]);
     }
+
+
+  
+
 
     //placing questions on the page
     for (let i = 0; i < allQuestions.length; i++) {
 
         console.log("List of questions 2: " + allQuestions[i].questionDescr);
-        console.log("List of questions 2: " + allQuestions[i].Answer);
+        console.log("List of questions 2: " + allQuestions[i].arrayOfAnswers[i].option);
 
         var iDiv = document.createElement('div');
         iDiv.id = "quizQuestion";
