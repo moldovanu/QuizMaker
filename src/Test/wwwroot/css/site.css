@@ -54,7 +54,7 @@ textarea {
 }
 .funkyradio input[type="radio"]:empty ~ label, .funkyradio input[type="checkbox"]:empty ~ label {
     position: relative;
-    line-height: 2.5em;
+    line-height: 1.5em;
     text-indent: 3.25em;
     margin-top: 2em;
     cursor: pointer;

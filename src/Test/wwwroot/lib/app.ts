@@ -34,7 +34,7 @@ class Answer {
 }
 
 let allQuestions = [];
-console.log("created allQuestions array: " + allQuestions);
+
 
 //let answers = [];
 //let questionDescription = "";
@@ -67,31 +67,43 @@ function createQuestion() {
     console.log("pushing Question to local storage");
     localStorage.setItem('question'+ Date.now(), JSON.stringify(question));
     
-    //pushing existing data from the localstorage into an array of question objects
 
 
-    alert ("Question submited. Add another question or take the quiz.")
+
+    //alert ("Question submited. Add another question or take the quiz.")
         
-    console.log("Question objects extracted from LocalStorage: \n");
-    for (let entry of allQuestions) {
-        console.log(entry);
-    }
-}
+    //console.log("Question objects extracted from LocalStorage: \n");
+    //for (let entry of allQuestions) {
+    //    console.log(entry);
+    //}
 
+
+
+}
 
 function populateQuiz() {
 
-//extracting data from localstorage
+    //extracting data from localstorage & pushing to all questions
     for (let i = 0; i < localStorage.length; i++) {
         let question = localStorage.getItem(localStorage.key(i));
         question = JSON.parse(question);
         allQuestions.push(question);
+        console.log("List of questions 1: " + allQuestions[i].questionDescr);
+        console.log("List of answers 1: " + allQuestions[i].Answer[i]);
     }
 
+    //placing questions on the page
+    for (let i = 0; i < allQuestions.length; i++) {
 
+        console.log("List of questions 2: " + allQuestions[i].questionDescr);
+        console.log("List of questions 2: " + allQuestions[i].Answer);
 
+        var iDiv = document.createElement('div');
+        iDiv.id = "quizQuestion";
+        var h = document.createElement('h4')
+        var questionNumber = ("Question " + i);
+    }
 }
-
 
 
 
